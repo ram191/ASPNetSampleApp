@@ -34,3 +34,8 @@
 /Users/training/Projects/ASPDemoRef/WebApiIntroAssignment/obj/Debug/netcoreapp3.1/web-test-api.RazorTargetAssemblyInfo.cache
 /Users/training/Projects/ASPDemoRef/WebApiIntroAssignment/obj/Debug/netcoreapp3.1/web-test-api.dll
 /Users/training/Projects/ASPDemoRef/WebApiIntroAssignment/obj/Debug/netcoreapp3.1/web-test-api.pdb
+/Users/training/Projects/ASPDemoRef/WebApiIntroAssignment/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.JsonPatch.dll
+/Users/training/Projects/ASPDemoRef/WebApiIntroAssignment/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+/Users/training/Projects/ASPDemoRef/WebApiIntroAssignment/bin/Debug/netcoreapp3.1/Newtonsoft.Json.dll
+/Users/training/Projects/ASPDemoRef/WebApiIntroAssignment/bin/Debug/netcoreapp3.1/Newtonsoft.Json.Bson.dll
+/Users/training/Projects/ASPDemoRef/WebApiIntroAssignment/obj/Debug/netcoreapp3.1/web-test-api.csproj.CopyComplete

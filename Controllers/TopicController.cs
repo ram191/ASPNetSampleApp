@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using web_test_api.models;
@@ -41,7 +42,7 @@ namespace web_test_api.Controllers
         public IActionResult NewData(Topics newuser)
         {
             topics.Add(newuser);
-            return Ok(topics);
+            return CreatedAtAction(nameof(GetById), newuser);
         }
 
         [HttpDelete("{id}")]
@@ -53,16 +54,11 @@ namespace web_test_api.Controllers
         }
 
         [HttpPatch("{id}")]
-        public IActionResult UpdateData(int id, Topics data)
+        public IActionResult UpdateData(int id, [FromBody] JsonPatchDocument<Topics> topicPatch)
         {
-            var y = topics.First(x => x.Id == id);
-            y.Id = y.Id;
-            y.Content = data.Content == null ? y.Content : data.Content;
-            y.Title = data.Title == null ? y.Title : data.Title;
-            y.Member_id = y.Member_id;
-            topics.Remove(y);
-            topics.Add(y);
-            return Ok(new { status = "Success", message = $"The topic {id} has been modified", data = topics });
+            Topics topicdata = topics.First(x => x.Id == id);
+            topicPatch.ApplyTo(topicdata);
+            return Ok(topicdata);
         }
     }
 }
