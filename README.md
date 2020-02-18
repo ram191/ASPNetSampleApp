@@ -78,3 +78,10 @@
 | replies/id | DELETE | id     |
 | replies    | GET    |        |
 | replies/id | GET    | id     |
+
+# Middleware
+create middleware to handle request on spesific request address host and save response to file 
+```
+[2020-02-20T11:13:54.545] Started GET /api/url for 10.0.0.1
+[2020-02-20T11:13:54.550] Completed 403 /api/url for /api/url not allowed for 10.0.0.1
+```
