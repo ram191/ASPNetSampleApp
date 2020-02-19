@@ -1,4 +1,9 @@
-# Group 3
+# Assignment Description
+
+This project is a project for two assignments. Both instructions are written below.
+For assignment number 2, the request will be rejected as 403 forbidden if the request host is 'http://localhost:5000'. The allowed host for accessing the files is 'https://localhost:5001'.
+
+# Assignment 1 (Web API)
 
 ## Categories Table
 | name        | key |
@@ -79,7 +84,7 @@
 | replies    | GET    |        |
 | replies/id | GET    | id     |
 
-# Middleware
+# Assignment 2 (Middleware)
 create middleware to handle request on spesific request address host and save response to file 
 ```
 [2020-02-20T11:13:54.545] Started GET /api/url for 10.0.0.1
