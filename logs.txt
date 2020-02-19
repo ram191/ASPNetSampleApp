@@ -1,6 +1,8 @@
-[2/19/2020 10:34:50 AM] Started GET /topics for localhost:5000
-[2/19/2020 10:34:50 AM] Completed 403 /topics for /topics not allowed for localhost:5000
-[2/19/2020 10:38:17 AM] Started GET /topics for localhost:5000
-[2/19/2020 10:38:17 AM] Completed 403 /topics for /topics not allowed for localhost:5000
-[2/19/2020 10:38:30 AM] Started GET /categories for localhost:5000
-[2/19/2020 10:38:30 AM] Completed 403 /categories for /categories not allowed for localhost:5000
+[2/19/2020 10:49:34 AM] Started GET /topics for localhost:5001
+[2/19/2020 10:49:34 AM] Completed 200 /topics for /topics is successful
+[2/19/2020 10:49:49 AM] Started GET /categories for localhost:5000
+[2/19/2020 10:49:49 AM] Completed 403 /categories for /categories not allowed for localhost:5000
+[2/19/2020 10:49:54 AM] Started GET /topics for localhost:5001
+[2/19/2020 10:49:54 AM] Completed 200 /topics for /topics is successful
+[2/19/2020 10:50:01 AM] Started GET /members for localhost:5001
+[2/19/2020 10:50:01 AM] Completed 200 /members for /members is successful

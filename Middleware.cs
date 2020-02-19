@@ -26,10 +26,10 @@ namespace web_test_api
             string host = httpContext.Request.Host.ToString();
             string pathbase = httpContext.Request.Path.ToString();
             var reqMessage = $"[{reqDate}] Started {method} {pathbase} for {host}";
+            messageList.Add(reqMessage);
             
             if(httpContext.Request.Host.ToString() == "localhost:5000")
             {   
-                messageList.Add(reqMessage);
                 httpContext.Response.StatusCode = 403;
                 string statusCode = httpContext.Response.StatusCode.ToString();
                 DateTime newResDate = DateTime.Now;
@@ -38,7 +38,10 @@ namespace web_test_api
             }
             else
             {
-                System.Console.WriteLine("It works");
+                string statusCode = httpContext.Response.StatusCode.ToString();
+                DateTime newResDate = DateTime.Now;
+                var resMessage = $"[{newResDate}] Completed {statusCode} {pathbase} for {pathbase} is successful";
+                messageList.Add(resMessage);
                 await _next(httpContext);
             }
             File.AppendAllLines(path, messageList);
