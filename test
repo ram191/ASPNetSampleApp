@@ -1,0 +1,10 @@
+[2/19/2020 10:36:02 AM] Started GET test for localhost:5000
+[2/19/2020 10:36:02 AM] Completed 403 test for test not allowed for localhost:5000
+[2/19/2020 10:36:31 AM] Started GET test for localhost:5000
+[2/19/2020 10:36:31 AM] Completed 403 test for test not allowed for localhost:5000
+[2/19/2020 10:36:32 AM] Started GET test for localhost:5000
+[2/19/2020 10:36:32 AM] Completed 403 test for test not allowed for localhost:5000
+[2/19/2020 10:36:36 AM] Started GET test for localhost:5000
+[2/19/2020 10:36:36 AM] Completed 403 test for test not allowed for localhost:5000
+[2/19/2020 10:36:41 AM] Started GET test for localhost:5000
+[2/19/2020 10:36:41 AM] Completed 403 test for test not allowed for localhost:5000

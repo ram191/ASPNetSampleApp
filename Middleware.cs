@@ -24,22 +24,22 @@ namespace web_test_api
             string method = httpContext.Request.Method.ToString();
             string reqDate = DateTime.Now.ToString();
             string host = httpContext.Request.Host.ToString();
-            var reqMessage = $"[{reqDate}] Started {method} /topics for {host}";
-
+            string pathbase = httpContext.Request.Path.ToString();
+            var reqMessage = $"[{reqDate}] Started {method} {pathbase} for {host}";
+            
             if(httpContext.Request.Host.ToString() == "localhost:5000")
             {   
                 messageList.Add(reqMessage);
                 httpContext.Response.StatusCode = 403;
                 string statusCode = httpContext.Response.StatusCode.ToString();
                 DateTime newResDate = DateTime.Now;
-                var resMessage = $"[{newResDate}] Completed {statusCode} /topics for /topics not allowed for {host}";
+                var resMessage = $"[{newResDate}] Completed {statusCode} {pathbase} for {pathbase} not allowed for {host}";
                 messageList.Add(resMessage);
             }
             else
             {
                 System.Console.WriteLine("It works");
                 await _next(httpContext);
-
             }
             File.AppendAllLines(path, messageList);
         }
