@@ -1,1 +1,16 @@
-Test response
+[2/19/2020 10:17:12 AM] Started GET /topics for localhost:5000
+[1/1/0001 12:00:00 AM] Completed 403 /topics for /topics not allowed for localhost:5000
+[2/19/2020 10:17:59 AM] Started GET /topics for localhost:5000
+[2/19/2020 10:17:59 AM] Completed 403 /topics for /topics not allowed for localhost:5000
+[2/19/2020 10:18:11 AM] Started GET /topics for localhost:5000
+[2/19/2020 10:18:11 AM] Completed 403 /topics for /topics not allowed for localhost:5000
+[2/19/2020 10:18:19 AM] Started GET /topics for localhost:5000
+[2/19/2020 10:18:19 AM] Completed 403 /topics for /topics not allowed for localhost:5000
+[2/19/2020 10:18:49 AM] Started GET /topics for localhost:5000
+[2/19/2020 10:18:49 AM] Completed 403 /topics for /topics not allowed for localhost:5000
+[2/19/2020 10:18:59 AM] Started GET /topics for localhost:5000
+[2/19/2020 10:18:59 AM] Completed 403 /topics for /topics not allowed for localhost:5000
+[2/19/2020 10:19:54 AM] Started GET /topics for localhost:5000
+[2/19/2020 10:19:54 AM] Completed 403 /topics for /topics not allowed for localhost:5000
+[2/19/2020 10:21:37 AM] Started GET /topics for localhost:5000
+[2/19/2020 10:21:37 AM] Completed 403 /topics for /topics not allowed for localhost:5000

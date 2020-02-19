@@ -2,14 +2,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using System.IO;
+using System.Collections.Generic;
+using System;
 
 namespace web_test_api
 {
-    public class MyMiddleware
+    public class MyLogger
     {
         private readonly RequestDelegate _next;
 
-        public MyMiddleware(RequestDelegate next)
+        public MyLogger(RequestDelegate next)
         {
             _next = next;
         }
@@ -18,27 +20,37 @@ namespace web_test_api
 
         public async Task Invoke(HttpContext httpContext)
         {
+            var messageList = new List<string>();
+            string method = httpContext.Request.Method.ToString();
+            string reqDate = DateTime.Now.ToString();
+            string host = httpContext.Request.Host.ToString();
+            var reqMessage = $"[{reqDate}] Started {method} /topics for {host}";
+
             if(httpContext.Request.Host.ToString() == "localhost:5000")
-            {
-                File.WriteAllText(path, "Test request");
-                await httpContext.Response.WriteAsync("Not allowed");
-                File.WriteAllText(path, "Test response");
+            {   
+                messageList.Add(reqMessage);
+                httpContext.Response.StatusCode = 403;
+                string statusCode = httpContext.Response.StatusCode.ToString();
+                DateTime newResDate = DateTime.Now;
+                var resMessage = $"[{newResDate}] Completed {statusCode} /topics for /topics not allowed for {host}";
+                messageList.Add(resMessage);
             }
             else
             {
                 System.Console.WriteLine("It works");
                 await _next(httpContext);
+
             }
-            
+            File.AppendAllLines(path, messageList);
         }
     }
 
     // Extension method used to add the middleware to the HTTP request pipeline.
     public static class MyMiddlewareExtensions
     {
-        public static IApplicationBuilder UseMyMiddleware(this IApplicationBuilder builder)
+        public static IApplicationBuilder UseMyLogger(this IApplicationBuilder builder)
         {
-            return builder.UseMiddleware<MyMiddleware>();
+            return builder.UseMiddleware<MyLogger>();
         }
     } 
 }
