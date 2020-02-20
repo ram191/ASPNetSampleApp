@@ -7,7 +7,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
+using Npgsql;
 using System.Linq;
+using WebApiIntroAssignment.Services;
 
 namespace web_test_api
 {
@@ -20,9 +22,12 @@ namespace web_test_api
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
-{
+        {
+            var connection = new NpgsqlConnection("Host=localhost;Username=postgres;Password=gigaming;Database=postgres");
+
+            services.AddSingleton<NpgsqlConnection>(connection);
+            services.AddTransient<IDatabase, Database>();
             services.AddControllers(options =>
             {
                 options.InputFormatters.Insert(0, GetJsonPatchInputFormatter());
@@ -51,7 +56,7 @@ namespace web_test_api
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            app.UseMyLogger();
+            // app.UseMyLogger();
 
             app.UseRouting();
 

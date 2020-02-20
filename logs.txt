@@ -6,3 +6,13 @@
 [2/19/2020 10:49:54 AM] Completed 200 /topics for /topics is successful
 [2/19/2020 10:50:01 AM] Started GET /members for localhost:5001
 [2/19/2020 10:50:01 AM] Completed 200 /members for /members is successful
+[2/19/2020 10:51:54 AM] Started GET /members for localhost:5001
+[2/19/2020 10:51:54 AM] Completed 200 /members for /members is successful
+[2/19/2020 10:52:02 AM] Started GET /categories for localhost:5000
+[2/19/2020 10:52:02 AM] Completed 403 /categories for /categories not allowed for localhost:5000
+[2/20/2020 10:01:31 AM] Started GET /members for localhost:5000
+[2/20/2020 10:01:31 AM] Completed 403 /members for /members not allowed for localhost:5000
+[2/20/2020 10:01:49 AM] Started GET /members for localhost:5000
+[2/20/2020 10:01:49 AM] Completed 403 /members for /members not allowed for localhost:5000
+[2/20/2020 10:02:06 AM] Started GET /members for localhost:5000
+[2/20/2020 10:02:06 AM] Completed 403 /members for /members not allowed for localhost:5000
