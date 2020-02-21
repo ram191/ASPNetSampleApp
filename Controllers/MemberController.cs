@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using web_test_api.models;
+using WebApiIntroAssignment.Services;
+using web_test_api.Interfaces;
+
 
 namespace web_test_api.Controllers
 {
@@ -12,59 +11,46 @@ namespace web_test_api.Controllers
     [Route("members")]
     public class MemberController : ControllerBase
     {
-        private List<Members> members = new List<Members>()
-        {
-            new Members() { Id = 1, Username = "admin", Password = "admin", Email = "admin@magazine.com", Full_name = "John Pantau", Popularity = 9 },
-            new Members() { Id = 2, Username = "newuser22", Password = "rahasia", Email = "userbaru22@magazine.com", Full_name = "Steve Occupation", Popularity = 6 },
-            new Members() { Id = 3, Username = "stalker4", Password = "pA33s4o2", Email = "stalker41@emailmin.com", Full_name = "Paul McCartney", Popularity = 10 },
-        };
-        private readonly ILogger<MemberController> _logger;
+        private readonly IDatabase _database;
 
-        public MemberController(ILogger<MemberController> logger)
+        public MemberController(IDatabase database)
         {
-            _logger = logger;
+            _database = database;
+        }
+
+        //Http Methods
+        [HttpPost]
+        public void PostMember(Members data)
+        {
+            _database.Create(data);
         }
 
         [HttpGet]
-        public IActionResult Get()
+        public IActionResult GetMember()
         {
-            return Ok(members);
+            var result = _database.Read();
+            return Ok(result);
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetById(int id)
+        public IActionResult GetMemberById(int id)
         {
-            return Ok(members.First(x => x.Id == id));
-        }
-
-        [HttpPost]
-        public IActionResult NewData(Members newuser)
-        {
-            members.Add(newuser);
-            return Ok(members);
+            var result = _database.ReadById(id);
+            return Ok(result);
         }
 
         [HttpDelete("{id}")]
-        public IActionResult DeletedData(int id)
+        public IActionResult DeleteMember(int id)
         {
-            var y = members.First(x => x.Id == id);
-            members.Remove(y);
-            return Ok(new { status = "Success", message = $"The member {id} has been deleted", data = members });
+            _database.Delete(id);
+            return Ok();
         }
 
         [HttpPatch("{id}")]
-        public IActionResult UpdateData(int id, Members data)
+        public IActionResult PatchMember(int id, [FromBody]JsonPatchDocument<Members> data)
         {
-            var y = members.First(x => x.Id == id);
-            y.Id = y.Id;
-            y.Username = data.Username == null ? y.Username : data.Username;
-            y.Password = data.Password == null ? y.Password : data.Password;
-            y.Email = data.Email == null ? y.Email : data.Email;
-            y.Full_name = data.Full_name == null ? y.Full_name : data.Full_name;
-            y.Popularity = data.Popularity == 0 ? y.Popularity : data.Popularity;
-            members.Remove(y);
-            members.Add(y);
-            return Ok(new { status = "Success", message = $"The member {id} has been modified", data = members });
+            _database.Update(id, data);
+            return Ok();
         }
     }
 }
