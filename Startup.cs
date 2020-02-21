@@ -23,7 +23,7 @@ namespace web_test_api
 
         public void ConfigureServices(IServiceCollection services)
         {
-            var connection = new NpgsqlConnection("Host=localhost;Username=postgres;Password=gigaming;Database=postgres");
+            var connection = new NpgsqlConnection("Host=ec2-23-22-156-110.compute-1.amazonaws.com;Username=prrsiczxuqbevo;Password=82fc413a05af14e8ac157b0a6fda535384823efe3b2c6ae8c755c8823e26e042;Database=ddpqenje1o3t4a;SSL Mode=Require;Trust Server Certificate=true");
 
             services.AddSingleton(connection);
             services.AddTransient<IDatabase, Database>();
