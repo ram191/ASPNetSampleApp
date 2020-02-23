@@ -3,6 +3,8 @@
 This project is a project for two assignments. Both instructions are written below.
 For assignment number 2, the request will be rejected as 403 forbidden if the request host is 'http://localhost:5000'. The allowed host for accessing the files is 'https://localhost:5001'.
 
+Dependency Injection is added to Member Controller to be able to access data hosted on heroku app.
+
 # Assignment 1 (Web API)
 
 ## Categories Table
